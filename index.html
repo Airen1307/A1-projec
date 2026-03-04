@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thông tin cá nhân</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background: #eef;
+      border-radius: 6px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Nhập thông tin</h2>
+
+  <input type="text" id="name" placeholder="Họ và tên">
+  <input type="number" id="age" placeholder="Tuổi">
+  <input type="email" id="email" placeholder="Email">
+
+  <button onclick="showInfo()">Xác nhận</button>
+
+  <div class="result" id="resultBox"></div>
+</div>
+
+<script>
+  function showInfo() {
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    const email = document.getElementById("email").value;
+
+    const resultBox = document.getElementById("resultBox");
+
+    if (!name || !age || !email) {
+      resultBox.style.display = "block";
+      resultBox.innerHTML = "Vui lòng nhập đầy đủ thông tin.";
+      return;
+    }
+
+    resultBox.style.display = "block";
+    resultBox.innerHTML = `
+      <strong>Thông tin bạn đã nhập:</strong><br>
+      Họ tên: ${name} <br>
+      Tuổi: ${age} <br>
+      Email: ${email}
+    `;
+  }
+</script>
+
+</body>
+</html>
